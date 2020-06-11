@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>kp</groupId>
+    <artifactId>exercise-app</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Exercise App</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.5.RELEASE</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <lombok.version>1.14.8</lombok.version>
+        <log4jdbc.log4j2.version>1.16</log4jdbc.log4j2.version>
+        <rest.assured.version>2.3.3</rest.assured.version>
+        <postgresql.version>42.2.12</postgresql.version>
+        <cucumber.reports.version>0.1.0</cucumber.reports.version>
+        <cucumber-jvm.version>1.2.6</cucumber-jvm.version>
+    </properties>
+
+    <dependencies>
+    	<!--  spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        
+        <!--  allows hot swap, disable cache for template, enable live reload -->
+        <dependency>
+       	    <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <scope>runtime</scope>
+        </dependency>
+        
+        <!--   metrics/monitoring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+        	<groupId>io.micrometer</groupId>
+        	<artifactId>micrometer-registry-jmx</artifactId>
+        </dependency>
+        <dependency>
+   	        <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        		 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!--  not sure what this is for? -->
+        <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-web</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- 
+        <dependency>
+            <groupId>org.bgee.log4jdbc-log4j2</groupId>
+            <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+            <version>${log4jdbc.log4j2.version}</version>
+        </dependency>
+		 -->
+
+        <dependency>
+            <groupId>com.jayway.restassured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest.assured.version}</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <!--  external  -->
+        
+        <!--  database -->
+        <dependency>
+        	<groupId>org.postgresql</groupId>
+        	<artifactId>postgresql</artifactId>
+        	<version>${postgresql.version}</version>
+        </dependency>
+        
+        <!-- common utils stuff -->
+        <dependency>
+        	<groupId>com.google.guava</groupId>
+        	<artifactId>guava</artifactId>
+        	<version>25.1-jre</version>
+        </dependency>
+        
+        <!-- joda time works better than java 8 time -->
+        <dependency>
+        	<groupId>joda-time</groupId>
+        	<artifactId>joda-time</artifactId>
+        	<version>2.10.1</version>
+        </dependency>
+        
+        <!-- various string utils -->
+        <dependency>
+        	<groupId>org.apache.commons</groupId>
+        	<artifactId>commons-text</artifactId>
+        	<version>1.6</version>
+        </dependency>
+        
+        <!-- jackson for json parsing -->
+        <dependency>
+        	<groupId>com.fasterxml.jackson.datatype</groupId>
+        	<artifactId>jackson-datatype-jdk8</artifactId>
+        </dependency>
+        
+        <!--  for thyme leaf templating w/ sql -->
+        <dependency>
+       		<groupId>ognl</groupId>
+       		<artifactId>ognl</artifactId>
+       		<version>3.1.12</version> 
+        </dependency>
+        
+        <!-- logging -->
+        <dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>slf4j-api</artifactId>
+        	<version>1.7.10</version>
+        </dependency>
+         <dependency>
+        	<groupId>org.slf4j</groupId>
+        	<artifactId>slf4j-log4j12</artifactId>
+        	<version>1.7.10</version>
+        </dependency>
+        
+        <!-- webjars for bootstrap, vue w/ thymeleaf -->
+        <dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>4.4.1-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+			<version>0.30</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>vue</artifactId>
+		    <version>2.6.11</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.webjars.npm</groupId>
+		    <artifactId>axios</artifactId>
+		    <version>0.19.0</version>
+		</dependency>
+				
+        <!-- junit -->
+        <dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.13</version>
+		    <scope>test</scope>
+		</dependency>
+		
+        <!-- bdd tests -->
+        <dependency>
+        	<groupId>info.cukes</groupId>
+        	<artifactId>cucumber-junit</artifactId>
+        	<version>${cucumber-jvm.version}</version>
+        	<scope>test</scope>
+        	<exclusions>
+        		<exclusion>
+        			<groupId>org.hamcrest</groupId>
+        			<artifactId>hamcrest-core</artifactId>
+        		</exclusion>
+        	</exclusions>
+        </dependency>
+        <dependency>
+        	<groupId>com.github.tomakehurst</groupId>
+        	<artifactId>wiremock</artifactId>
+        	<version>2.1.12</version>
+        	<scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.masterthought</groupId>
+        	<artifactId>maven-cucumber-reporting</artifactId>
+        	<scope>test</scope>
+        	<version>${cucumber.reports.version}</version>
+        	<exclusions>
+        		<exclusion>
+        			<groupId>commons-lang</groupId>
+        			<artifactId>commons-lang</artifactId>
+        		</exclusion>
+        		<exclusion>
+        			<groupId>commons-collections</groupId>
+        			<artifactId>commons-collections</artifactId>
+        		</exclusion>
+        		<exclusion>
+        			<groupId>org.apache.maven</groupId>
+        			<artifactId>maven-plugin-api</artifactId>
+        		</exclusion>
+        		<exclusion>
+        			<groupId>com.google.guava</groupId>
+        			<artifactId>guava</artifactId>
+        		</exclusion>
+        		<exclusion>
+        			<groupId>org.mockito</groupId>
+        			<artifactId>mockito-all</artifactId>
+        		</exclusion>
+        	</exclusions>
+        </dependency>
+        
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                	<execution>
+                		<goals>
+                			<goal>repackage</goal>
+                		</goals>
+                	</execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-compiler-plugin</artifactId>
+            	<version>3.7.0</version>
+            	<configuration>
+            		<source>${java.version}</source>
+            		<target>${java.version}</target>
+            	</configuration>
+            </plugin>
+            
+            <!--  for maven releases? -->
+            <plugin>
+           		<groupId>org.apache.maven.plugins</groupId>
+           		<artifactId>maven-release-plugin</artifactId>
+           		<version>2.5.2</version> 
+            </plugin>
+        </plugins>
+    </build>
+
+	<!--  any other nexus type repo internally -->
+	<repositories>
+		<repository>
+			<id>cloudera</id>
+			<url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+		</repository>
+	</repositories>
+
+</project>

@@ -1,0 +1,26 @@
+server.port: 8888
+management.port: 8083
+spring.jmx.enabled: true
+managmeent.endpoints.web.exposure.include: env,metrics
+management.endpoints.web.base-path: /
+
+# not for sql template but html
+spring:
+    thymeleaf:
+        cache: false
+        check-template: true
+        template-location: true
+        content-type: text/html
+        enabled: true
+        encoding: UTF-8
+
+app:
+    datasource-pg:
+        jdbcUrl: jdbc:postgresql://localhost:5432/exercise_db?currentSchema=public
+        username: postgres
+        password: password
+        minimum-idle: 1
+        idle-timeout: 1000000
+        
+logging.ldevel.root: INFO
+logging.devel.kp.exercise.app: DEBUG
