@@ -8,8 +8,8 @@ mvn spring-boot:run
 
 ## How to build and run:
 ```
-mvn clean build
-java -jar target/exercise-app.jar
+mvn clean install
+java -jar target/exercise-app-0.0.1-SNAPSHOT.jar
 ```
 
 ## Configuration:
