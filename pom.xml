@@ -21,7 +21,7 @@
         <lombok.version>1.14.8</lombok.version>
         <log4jdbc.log4j2.version>1.16</log4jdbc.log4j2.version>
         <rest.assured.version>2.3.3</rest.assured.version>
-        <postgresql.version>42.2.12</postgresql.version>
+        <postgresql.version>42.4.1</postgresql.version>
         <cucumber.reports.version>0.1.0</cucumber.reports.version>
         <cucumber-jvm.version>1.2.6</cucumber-jvm.version>
     </properties>
